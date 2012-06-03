@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :course, :name
   # attr_accessible :title, :body
 
-
+  validates :name, :length => { :minimum => 5 }
+  validates :course, :length => { :minimum => 5 }
+  
   has_many :reviews
 end

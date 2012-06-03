@@ -44,4 +44,36 @@ class ReviewsController < ApplicationController
     end
   end
 
+  # DELETE /subjects/1
+  # DELETE /subjects/1.json
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+
+    respond_to do |format|
+      format.html { redirect_to subjects_path }
+      format.json { head :no_content }
+    end
+  end
+
+
+
+  def destroy_multiple
+    Comment.destroy(params[:comment_ids])
+    flash[:notice] = "Successfully destroyed comments."
+    redirect_to comments_path
+  end
+
+  def approve
+    @comment = Comment.find(params[:id])
+    @comment.mark_as_ham!
+    redirect_to comments_path
+  end
+
+  def reject
+    @comment = Comment.find(params[:id])
+    @comment.mark_as_spam!
+    redirect_to comments_path
+  end
+
 end
