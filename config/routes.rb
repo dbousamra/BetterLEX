@@ -1,10 +1,10 @@
 Subjects::Application.routes.draw do
 
-  resources :subjects, :only => [:new, :index, :create] do
+  root :to => 'subjects#index'
+
+  resources :subjects, :only => [:new, :index, :create, :show] do
     resources :reviews, :only => [:new, :show, :create]
   end
-
-  resources :subjects
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
