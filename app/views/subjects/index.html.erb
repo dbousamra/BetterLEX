@@ -1,0 +1,31 @@
+<div class="page-header">
+  <%= link_to new_subject_path, :class => 'btn btn-primary' do %>
+    <i class="icon-plus icon-white"></i>
+    New Subject
+  <% end %>
+  <h1>Listing subjects</h1>
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Title</th>
+      <th>Reviews</th>
+      <th>Average Difficulty</th>
+      <th>Average Workload</th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @subjects.each do |subject| %>
+    <tr>
+      <td><%= subject.code %></td>
+      <td><%= subject.title %></td>
+      <td><%= subject.reviews.count %></td>
+      <td><%= subject.average_difficulty %></td>
+      <td><%= subject.average_workload %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

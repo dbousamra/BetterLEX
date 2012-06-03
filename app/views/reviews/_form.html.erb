@@ -1,0 +1,15 @@
+
+
+<%= simple_form_for([@review.subject, @review]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :username %>
+  <%= f.input :semester, :collection => 1..2 %>
+  <%= f.input :workload, :collection => 1..10 %>
+  <%= f.input :difficulty, :collection => 1..10 %>
+  <%= f.input :review, :input_html => { :rows => 10, :style => "width: 500px;"}, :label => "A brief description of your experiences" %>
+  
+  <div class="form-actions">
+    <%= f.button :submit, :class => "btn-primary" %>
+  </div>
+
+<% end %>

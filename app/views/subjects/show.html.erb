@@ -1,0 +1,48 @@
+<div class="page-header">
+  <%= link_to subjects_path, :class => 'btn' do %>
+    <i class="icon-list-alt"></i>
+    Back
+  <% end %>
+  <%= link_to new_subject_review_path(@subject), :class => 'btn btn-primary' do %>
+    <i class="icon-plus icon-white"></i>
+    Add Review
+  <% end %>
+  <h1>
+    <%= @subject.code %>
+    -
+    <%= @subject.title %>
+  </h1>
+
+</div>
+<div style="width: 50%;">
+  <h3>Average difficulty is <%= @subject.average_difficulty %></h3>
+  <div class="progress <%= score_color(@subject.average_difficulty) %>">
+    <div class="bar" style="width: <%= number_to_percentage(@subject.average_difficulty * 10) %>;"></div>
+  </div>
+  <h3>Average workload is <%= @subject.average_workload %></h3>
+  <div class="progress <%= score_color(@subject.average_workload) %>">
+    <div class="bar" style="width: <%= number_to_percentage(@subject.average_workload * 10) %>;"></div>
+  </div>
+</div>
+<hr>
+<h2><%= pluralize(@subject.reviews.count, "review") %></h2>
+<hr>
+<% @subject.reviews.each do |review| %>
+  <h3>
+    <%= review.username %> 
+  </h3> 
+  <dl class="dl-horizontal">
+    <dt>Difficulty</dt>
+    <dd><%= review.difficulty %></dd>
+    <dt>Workload</dt>
+    <dd><%= review.workload %></dd>
+    <dt>Semester</dt>
+    <dd><%= review.semester %></dd>
+    <dt>Recommended</dt>
+    <dd><%= review.recommend ? "Yes" : "No" %></dd>
+
+  </dl>
+  <blockquote>
+    <%= review.review %>
+  </blockquote>
+<% end %>

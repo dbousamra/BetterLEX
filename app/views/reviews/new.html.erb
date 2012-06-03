@@ -1,0 +1,9 @@
+<div class="page-header">
+  
+   <%= link_to subject_path(@review.subject), :class => 'btn' do %>
+    <i class="icon-list-alt"></i>
+    Back
+  <% end %>
+  <h1>Add review for <%= @review.subject.title %> </h1>
+</div>
+<%= render 'form' %>
