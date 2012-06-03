@@ -5,5 +5,5 @@ class Review < ActiveRecord::Base
 
   validates :username, :difficulty, :workload, :review, :semester, :presence => true
   validates :review, :length => { :minimum =>20 }
-  
+
 end
