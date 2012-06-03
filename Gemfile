@@ -31,6 +31,7 @@ gem 'bootstrap-generators', '~> 2.0'
 gem 'simple_form', '~> 2.0'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'facets', :require=>false
+gem 'devise'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

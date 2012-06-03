@@ -1,5 +1,7 @@
 Subjects::Application.routes.draw do
 
+  devise_for :users
+
   root :to => 'subjects#index'
 
   resources :subjects, :only => [:new, :index, :create, :show] do

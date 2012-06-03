@@ -1,5 +1,6 @@
 class Review < ActiveRecord::Base
   belongs_to :subject
+  belongs_to :user
   attr_accessible :username, :difficulty, :workload, :review, :semester, :recommend
 
 
