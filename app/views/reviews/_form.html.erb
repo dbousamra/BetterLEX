@@ -2,7 +2,6 @@
 
 <%= simple_form_for([@review.subject, @review]) do |f| %>
   <%= f.error_notification %>
-  <%= f.input :username %>
   <%= f.input :semester, :collection => 1..2 %>
   <%= f.input :workload, :collection => 1..10 %>
   <%= f.input :difficulty, :collection => 1..10 %>
