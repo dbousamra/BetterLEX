@@ -14,6 +14,7 @@
       <th>Reviews</th>
       <th>Average Difficulty</th>
       <th>Average Workload</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -25,6 +26,12 @@
       <td><%= subject.reviews.count %></td>
       <td><%= subject.average_difficulty %></td>
       <td><%= subject.average_workload %></td>
+      <td>
+        <%= link_to new_subject_review_path(subject), :class => 'btn btn-success', :style => "float:right;" do %>
+          <i class="icon-plus icon-white"></i>
+          Add a review
+        <% end %>
+      </td>
     </tr>
 <% end %>
   </tbody>

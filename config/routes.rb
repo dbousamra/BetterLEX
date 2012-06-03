@@ -1,7 +1,7 @@
 Subjects::Application.routes.draw do
 
-  resources :subjects do
-    resources :reviews, :only => [:new, :show]
+  resources :subjects, :only => [:new, :index, :create] do
+    resources :reviews, :only => [:new, :show, :create]
   end
 
   resources :subjects
