@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
 
+  before_filter :authenticate_user!, :except => [:show]
+
   # GET subjects/1/reviews/1
   # GET subjects/1/reviews/1.json
   def show
@@ -29,6 +31,7 @@ class ReviewsController < ApplicationController
   def create
     @subject = Subject.find(params[:subject_id])
     @review = @subject.reviews.build(params[:review])
+    @review.user = current_user
 
     respond_to do |format|
       if @review.save

@@ -57,13 +57,20 @@ GEM
       orm_adapter (~> 0.0.7)
       railties (~> 3.1)
       warden (~> 1.1.1)
+    differ (0.1.2)
+    dye (0.1.3)
     erubis (2.7.0)
     eventmachine (0.12.10)
     execjs (1.4.0)
       multi_json (~> 1.0)
     facets (2.9.3)
     hike (1.2.1)
+    hirb (0.6.2)
     i18n (0.6.0)
+    irt (1.2.10)
+      differ (>= 0.1.1)
+      dye (>= 0.1.3)
+      prompter (>= 0.1.4)
     journey (1.0.3)
     jquery-rails (2.0.2)
       railties (>= 3.2.0, < 5.0)
@@ -86,6 +93,9 @@ GEM
     orm_adapter (0.0.7)
     pg (0.13.2)
     polyglot (0.3.3)
+    prompter (0.1.5)
+      dye (>= 0.1.1)
+      yard (>= 0.6.3)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -141,6 +151,7 @@ GEM
       multi_json (>= 1.0.2)
     warden (1.1.1)
       rack (>= 1.0)
+    yard (0.8.1)
 
 PLATFORMS
   ruby
@@ -150,6 +161,8 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   facets
+  hirb
+  irt
   jquery-rails
   nested_scaffold
   pg

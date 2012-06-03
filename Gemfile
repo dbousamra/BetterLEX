@@ -21,6 +21,8 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem "irt"
+  gem "hirb"
 end
 
 gem 'pg'

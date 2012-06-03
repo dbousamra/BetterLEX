@@ -1,6 +1,9 @@
 class SubjectsController < ApplicationController
   # GET /subjects
   # GET /subjects.json
+
+  before_filter :authenticate_user!, :except => [:show, :index]
+
   def index
     @subjects = Subject.all
 
