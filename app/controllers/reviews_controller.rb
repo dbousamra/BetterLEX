@@ -32,7 +32,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to([@review.subject, @review], :notice => 'Review was successfully created.') }
+        format.html { redirect_to(subject_path(@review.subject), :notice => 'Review was successfully created.') }
         format.json { render :json => @review, :status => :created, :location => [@review.subject, @review] }
       else
         format.html { render :action => "new" }

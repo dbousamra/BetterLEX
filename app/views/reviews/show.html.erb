@@ -15,6 +15,4 @@
   <%= @review.review %>
 </p>
 
-
-<%= link_to 'Edit', edit_subject_review_path(@review.subject, @review) %> |
-<%= link_to 'Back', subject_reviews_path(@review.subject) %>
+<%= link_to 'Back', subject_path(@review.subject) %>

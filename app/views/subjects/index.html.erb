@@ -21,17 +21,11 @@
   <tbody>
 <% @subjects.each do |subject| %>
     <tr>
-      <td><%= subject.code %></td>
-      <td><%= subject.title %></td>
+      <td><%= link_to subject.code, subject_path(subject) %></td>
+      <td><%= link_to subject.title, subject_path(subject) %></td>
       <td><%= subject.reviews.count %></td>
       <td><%= subject.average_difficulty %></td>
       <td><%= subject.average_workload %></td>
-      <td>
-        <%= link_to new_subject_review_path(subject), :class => 'btn btn-success', :style => "float:right;" do %>
-          <i class="icon-plus icon-white"></i>
-          Add a review
-        <% end %>
-      </td>
     </tr>
 <% end %>
   </tbody>
