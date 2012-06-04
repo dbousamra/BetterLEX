@@ -35,7 +35,7 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'facets', :require=>false
 gem 'devise'
 gem 'rakismet'
-
+gem 'rails_admin'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
