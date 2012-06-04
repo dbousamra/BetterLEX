@@ -11,6 +11,10 @@ end
 
 module Subjects
   class Application < Rails::Application
+
+    config.rakismet.key = '44b7d2cd952b'
+    config.rakismet.url = 'http://high-moon-5823.herokuapp.com/'
+    config.assets.initialize_on_precompile = false
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

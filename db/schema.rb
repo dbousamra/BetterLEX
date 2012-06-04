@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120603220147) do
+ActiveRecord::Schema.define(:version => 20120604082932) do
 
   create_table "reviews", :force => true do |t|
     t.integer  "subject_id"
@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(:version => 20120603220147) do
     t.text     "review"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "username"
     t.boolean  "recommend"
     t.integer  "semester"
     t.integer  "user_id"
+    t.boolean  "approved"
   end
 
   add_index "reviews", ["subject_id"], :name => "index_reviews_on_subject_id"

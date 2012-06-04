@@ -25,9 +25,9 @@
   </div>
 </div>
 <hr>
-<h2><%= pluralize(@subject.reviews.count, "review") %></h2>
+<h2><%= pluralize(@subject.reviews.is_approved.count, "review") %></h2>
 <hr>
-<% @subject.reviews.each do |review| %>
+<% @subject.reviews.is_approved.each do |review| %>
   <h3>
     <%= review.user.name %> 
   </h3> 
@@ -40,7 +40,6 @@
     <dd><%= review.semester %></dd>
     <dt>Recommended</dt>
     <dd><%= review.recommend ? "Yes" : "No" %></dd>
-
   </dl>
   <blockquote>
     <%= review.review %>
