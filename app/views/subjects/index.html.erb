@@ -22,7 +22,7 @@
     <tr>
       <td><%= link_to subject.code, subject_path(subject) %></td>
       <td><%= link_to subject.title, subject_path(subject) %></td>
-      <td><%= subject.reviews.is_approved.count %></td>
+      <td><%= subject.reviews.is_approved.has_text_review.count %></td>
       <td><%= subject.average_difficulty %></td>
       <td><%= subject.average_workload %></td>
     </tr>

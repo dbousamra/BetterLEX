@@ -19,9 +19,17 @@ class Subject < ActiveRecord::Base
   	end
   end
 
+  def average_overall
+    if self.reviews.count > 0
+      self.reviews.average(:overall).round(2)
+    else
+      0.0
+    end
+  end
+
   def average_workload
-  	if self.reviews.is_approved.count > 0
-  		self.reviews.is_approved.average(:workload).round(2)
+  	if self.reviews.count > 0
+  		self.reviews.average(:workload).round(2)
   	else
   		0.0
   	end

@@ -32,14 +32,18 @@ class ReviewsController < ApplicationController
     @subject = Subject.find(params[:subject_id])
     @review = @subject.reviews.build(params[:review])
     @review.user = current_user
-    if @review.spam? 
-      logger.info "SPAM"
-      @review.approved = false
-    else
-      logger.info "NOT SPAM"
+    if @review.review.empty?
       @review.approved = true
+    else
+      if @review.spam? 
+        logger.info "SPAM"
+        @review.approved = false
+      else
+        logger.info "NOT SPAM"
+        @review.approved = true
+      end
     end
-
+     
     respond_to do |format|
       if @review.save
         if @review.approved?

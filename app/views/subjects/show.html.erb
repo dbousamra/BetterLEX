@@ -5,7 +5,7 @@
   <% end %>
   <%= link_to new_subject_review_path(@subject), :class => 'btn btn-primary' do %>
     <i class="icon-plus icon-white"></i>
-    Add Review
+    Review this subject
   <% end %>
   <h1>
     <%= @subject.code %>
@@ -15,6 +15,10 @@
 
 </div>
 <div style="width: 50%;">
+  <h3>Overall rating is <%= @subject.average_overall %></h3>
+  <div class="progress <%= score_color(@subject.average_overall) %>">
+    <div class="bar" style="width: <%= number_to_percentage(@subject.average_overall * 10) %>;"></div>
+  </div>
   <h3>Average difficulty is <%= @subject.average_difficulty %></h3>
   <div class="progress <%= score_color(@subject.average_difficulty) %>">
     <div class="bar" style="width: <%= number_to_percentage(@subject.average_difficulty * 10) %>;"></div>
@@ -25,19 +29,19 @@
   </div>
 </div>
 <hr>
-<h2><%= pluralize(@subject.reviews.is_approved.count, "review") %></h2>
+<h2><%= pluralize(@subject.reviews.is_approved.has_text_review.count, "review") %></h2>
 <hr>
-<% @subject.reviews.is_approved.each do |review| %>
+<% @subject.reviews.is_approved.has_text_review.each do |review| %>
   <h3>
     <%= review.user.name %> 
   </h3> 
   <dl class="dl-horizontal">
+    <dt>Overall</dt>
+    <dd><%= review.overall %></dd>
     <dt>Difficulty</dt>
     <dd><%= review.difficulty %></dd>
     <dt>Workload</dt>
     <dd><%= review.workload %></dd>
-    <dt>Semester</dt>
-    <dd><%= review.semester %></dd>
     <dt>Recommended</dt>
     <dd><%= review.recommend ? "Yes" : "No" %></dd>
   </dl>
